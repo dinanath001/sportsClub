@@ -1,0 +1,46 @@
+{% extends 'club_app/member/member_base.html'%}
+{%load static%}
+
+{%block title%}
+  Member Home|DashBoard
+{%endblock%}
+
+{%block style%}
+
+ .box{
+       width:350px;
+       height400px;
+ }
+ .box img{
+  width:300px;
+  height:370px;
+  border:2px solid green;
+  border-radius:20px;
+ }
+
+{%endblock%} 
+
+{%block content%}
+ <div class="container w-85 bg-info d-flex" style="margin-top: 7%;" >
+  <div class="box">
+
+   <div>
+
+    <img src="/media/{{member_key.profile_picture}}" alt="" >
+  </div>
+
+   </div> 
+   
+   <div>
+    <h4>Name:{{member_key.name}}</h4>
+    <h4>Phone:{{member_key.phone}}</h4>
+    <h4>Email:{{member_key.email}}</h4>
+    <h4>City:{{member_key.city}}</h4>
+    <h4>Address:{{member_key.address}}</h4>
+   </div>
+
+  
+ 
+</div>
+{%endblock%} 
+

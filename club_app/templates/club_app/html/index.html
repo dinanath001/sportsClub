@@ -1,0 +1,189 @@
+  <!DOCTYPE html>
+  <html lang="en">
+      {% load static %}
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>SportsClub</title>
+      {% include 'club_app/common_files/common_css.html '%}
+      
+      <style>
+        .flex-container{
+          display:flex;
+        
+          
+        }
+        .w-100{
+          height:70vh;
+          
+        }
+      
+      .card{
+        transition: transform 0.5s;  
+        background-color:rgba(169, 201, 82, 0.799);
+        border-radius: 15px;
+        border: 3mm ridge rgba(211, 220, 50, .6);
+    
+      }
+      
+      
+      .card:hover{
+        /* transform: scale(1.1); */
+        transform: rotate(1turn);
+    
+      } 
+      body{
+      background-image: url("{% static 'club_app/images/badminton.jpg' %}");
+      background-position: top left, bottom right;
+      background-size: 100%, cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      }
+        
+    </style>
+  </head>
+
+
+  <body style="background-color:rgb(225, 205, 180);">
+    {% comment %} main body for css {% endcomment %}
+    {% include 'club_app/common_files/common_header.html'%}
+  <div class="main-body"> 
+      <div class="container-fluid text-center mt-4">
+        <h1 class="fw-bold" style="
+            font-size: 2rem; 
+            color: #e4e77c; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            
+        ">
+            Fighters Sports Club
+        </h1>
+      </div>
+    
+    
+      {% comment %} <a href="#contact_us" style="float:right">Get in Touch</a> {% endcomment %}
+
+      
+      
+      <div class="flex-container ">
+        <div style="width:60%;height:60%">
+          {% comment %} carousel code and notice code {% endcomment %}
+          <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'club_app/images/sports.jpg' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h4 style="text-decoration:underline;">Get</h4>
+                  <h2 style="color: black;">Work hard for the best</h2>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'club_app/images/stadium.jpg' %}"  class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h4 style="text-decoration: underline;">Ready</h4>
+                  <h2 style="color: black;">Maintain Your Discipline.</h2>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'club_app/images/fotbaal.jpg' %}"  class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h4 style="text-decoration: underline; text-decoration-color: aquamarine;">& GO</h4>
+                  <h2 style="color: rgb(43, 157, 177);">build your personality like Sports Disciple.</h2>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+        </div>
+
+      <div style="width:40%;background-color:rgb(115, 183, 177);">
+        <h3 style="color:red;text-align:center;">Important Notices</h3>
+        <marquee direction="up" scrollamount="2" onmouseover="this.stop()" onmouseout="this.start()">
+          <ul style="list-style-type:none;">
+            
+            {%for n in notice_key%}
+          <li>
+              {{n.notice_description}} posted on: {{n.notice_time}}
+          </li>  
+
+
+            {% endfor %}
+            
+          </ul>
+          
+
+
+
+        </marquee>
+      </div>
+      </div>
+      {% comment %} for event description  {% endcomment %}
+      <!-- Event List code -->
+
+  <div class="flex-container mt-2 ">
+    {% for e in event_key%}
+  <div class="card mx-4 ">
+    <div class="card-body"> 
+      <h5 class="card-title">Name of the Event:{{e.event_name}}</h5>
+      <p class="card-text">EventVenue:{{e.event_venue}}</p>
+      <p class="card-text">OrganizerName:{{e.event_organizer}}</p>
+      <p class="card-text">EventDate:{{e.event_time}}</p>
+      <!-- <p class="card-text">Description{{e.event_description}}</p> -->
+    </div>
+  </div> 
+    {% endfor %}
+  </div>
+<!-- for contact form -->
+  {%if messages %}
+  {% for m in messages %}
+  <h2> {{m}} </h2>
+    {% endfor %}  
+    {% endif %}  
+    <div   class="container-fluid mt-3 ">
+      <div  class="row">
+        <div  class="col-3"></div>
+        <div style="border: 5px;border-radius: 20%;border: thick double #17b9b9;border: width 25px;" class="col-6">
+          <h2 style="text-align:center ;">Feel free to Contact Us</h2>
+          <section  id="contact_us">
+            <form   method ="post" action="/contact/">
+              {% csrf_token %}
+            <div style="border: 5px;border-radius: 20%;border: thick double #26be52;border: width 25px;" class="mt-4 input-group w-auto ">
+            <label for="name"class="input-group-text"><i class='fas fa-address-book'></i></label>
+            <input type="text" placeholder=" Enter your Name" class="form-control" name="name">
+            </div>
+            <div style="border: 5px;border-radius: 20%;border: thick double #26be52;border: width 25px;" class="mt-4 input-group " >
+            <label for="Email"class="input-group-text"><i class="fa fa-envelope-open"></i></label>
+            <input type="email" placeholder=" Enter your Email"class="form-control" name="email">
+            </div>
+            <div style="border: 10px;border-radius: 5%;border: thick double #26be52;border: width 30px;" class="Questions mt-4  ">
+            <label for="Questions"class="input-group"></label>
+            <textarea placeholder="Your-Query" class="form-control " rows="4" name="question"></textarea>
+            </div>
+            <div class="text-center mt-2">
+            <button type="submit" class="btn btn-danger w-50" class="texr-center"> Submit </button> 
+          </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    </div> 
+      {% include 'club_app/common_files/common_footer.html' %}
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      
+  </body>
+  </html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Club | About Us</title>
+    {% include 'club_app/common_files/common_css.html' %}
+
+    <style>
+        /* General Styles */
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+
+        .main-body {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0b3d91;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        p {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        /* Image Gallery */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-container img {
+            width: 100%;
+            height: 220px;
+            border-radius: 20px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Carousel */
+        .carousel {
+            max-width: 700px;
+            margin: 30px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel img {
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .carousel-caption h2 {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .carousel-caption h4 {
+            color: #ffcc00;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .carousel img {
+                height: 250px;
+            }
+        }
+        body {
+          background-color:rgb(219, 210, 229); /* Dark grey-blue background */
+          color: #ffffff; /* White text for better readability */
+      }
+      
+      
+      
+      p {
+          background-color:rgb(21, 35, 49); /* Slightly lighter grey-blue for readability */
+          color: #ffffff;
+      }
+      
+      
+    </style>
+  
+  
+</head>
+
+<body>
+    {% include 'club_app/common_files/common_header.html' %}
+
+    <div class="main-body">
+   
+        
+        <h1>Welcome to Fighters Sports Club</h1>
+
+        <p>
+            With a passion for promoting health, fitness, and sportsmanship, Ramagya Sports Academy, in collaboration with White Canvas India, launched Noida’s **First and Biggest Sports League - NSL**.
+            This spectacular event encouraged individuals of all ages, from **4 to 71 years old**, to participate in **12 exciting indoor and outdoor sports**.
+            The event, spanning **27 hours**, created history with **over 3,062 participants** and earned a **National Record** as the **largest family sports league** in India.
+        </p>
+
+        <!-- Image Gallery -->
+        <div class="gallery-container">
+            <img src="{% static 'club_app/images/cricket.jpg' %}" alt="Cricket">
+            <img src="{% static 'club_app/images/sports.jpg' %}" alt="Sports">
+            <img src="{% static 'club_app/images/stadium.jpg' %}" alt="Stadium">
+            <img src="{% static 'club_app/images/fotbaal.jpg' %}" alt="Football">
+            <img src="{% static 'club_app/images/fotb.jpg' %}" alt="More Football">
+        </div>
+
+        <!-- Carousel Section -->
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'club_app/images/sports.jpg' %}" class="d-block w-100" alt="Sports">
+                    <div class="carousel-caption">
+                        <h4>Get</h4>
+                        <h2>Work Hard for the Best</h2>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{% static 'club_app/images/stadium.jpg' %}" class="d-block w-100" alt="Stadium">
+                    <div class="carousel-caption">
+                        <h4>Ready</h4>
+                        <h2>Maintain Your Discipline</h2>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="{% static 'club_app/images/fotbaal.jpg' %}" class="d-block w-100" alt="Football">
+                    <div class="carousel-caption">
+                        <h4>& GO</h4>
+                        <h2>Build Your Personality Like a Sports Disciple</h2>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+    </div>
+
+    {% include 'club_app/common_files/common_footer.html' %}
+{% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> {% endcomment %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12DoJwFvX8ERcD2zFnAe72rLn0uMlq4W/ZhWkKj4U26U5Dk5" crossorigin="anonymous"></script>
+
+</body>
+</html>

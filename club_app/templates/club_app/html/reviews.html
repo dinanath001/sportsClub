@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reviews</title>
+    {% include 'club_app/common_files/common_css.html' %}
+    <style>
+        /* Flex container for layout */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        /* Card text styling */
+        .card-text {
+            font-size: 16px;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Card styling */
+        .card {
+            border-radius: 15px;
+            border: 1px solid #ddd;
+            width: 18rem;
+            height: auto;  /* Auto-adjust height based on content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Added shadow for depth */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+            background-color: #fff;  /* White background */
+        }
+
+        /* Card image styling */
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;  /* Ensures images fill the space */
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* Card hover effect */
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Increased shadow on hover */
+            border-radius: 10px;
+        }
+
+        /* Title styling */
+        h1 {
+            color: #5E2A84;
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Color change buttons */
+        .color-options {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .color-options input {
+            margin-right: 10px;
+        }
+
+        /* Responsive design for small screens */
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 320px;
+            }
+           
+        }
+
+    </style>
+
+    <script>
+        function changeColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</head>
+<body>
+    <div class="main-body">
+        {% include 'club_app/common_files/common_header.html' %}
+
+        <!-- Color Selection -->
+        <div class="color-options">
+            <label>Choose Background Color:</label>
+            RED <input type="radio" name="color" value="red" onclick="changeColor(this.value)">
+            GREEN <input type="radio" name="color" value="green" onclick="changeColor(this.value)">
+            BLUE <input type="radio" name="color" value="blue" onclick="changeColor(this.value)">
+            YELLOW <input type="radio" name="color" value="yellow" onclick="changeColor(this.value)">
+            BLACK <input type="radio" name="color" value="black" onclick="changeColor(this.value)">
+        </div>
+
+        <!-- Title -->
+        <h1>Reviews</h1>
+
+        <!-- Review Cards -->
+        <div class="flex-container">
+            {% for c in review_key %}
+            <div class="card">
+                <!-- <img src="{{ c.image_url }}" class="card-img-top" alt="Review Image"> If you plan to add images -->
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 18px; color: #4CAF50; font-weight: bold;">{{ c.name }}</h5>
+                    <p class="card-text"><strong>Email:</strong> {{ c.email }}</p>
+                    <p class="card-text"><strong>Rating:</strong> {{ c.rating }}</p>
+                    <p class="card-text"><strong>Review:</strong> {{ c.review }}</p>
+                    <p class="card-text"><strong>Date:</strong> {{ c.date }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'club_app/common_files/common_footer.html' %}
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>

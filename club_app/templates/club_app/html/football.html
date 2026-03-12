@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket</title>
+    {% include 'club_app/common_files/common_css.html '%}
+    <style>
+        img{width: 355px;
+            /* height: 800px; */
+            height: 25em;
+            border: 4px;
+            border-radius: 10%;
+            border: thick double #5717ab;} 
+        </style>
+      
+</head>
+<body style="background-image: linear-gradient(to right, #b9f8e5 ,#5defc3);">
+    
+    <h1 Style="text-align: center;">Football Page welcomes you</h1>
+    {% include 'club_app/common_files/common_header.html'%}
+    
+    <div style="border: 4px; border-radius:10%; border: 4mm ridge rgba(211, 220, 50, .6);" class="container bg-body-secondary mt-5" >
+        
+        <p style="font-size:larger; font-style:oblique; -webkit-text-fill-color: rgb(144, 28, 99);">
+         Football is a family of team sports that involve, to varying degrees, kicking a ball to score a goal.
+         Unqualified, the word football generally means the form of football
+        that is the most popular where the word is used. Sports commonly 
+        called football include association football (known as soccer in Australia, Canada, South Africa,
+        the United States, and sometimes in Ireland and New Zealand);
+        Australian rules football; Gaelic football; gridiron football
+        (specifically American football, arena football, or Canadian football); 
+        International rules football; rugby league football; and rugby union football.[1]
+        These various forms of football share, to varying degrees, common origins and are known as "football codes"
+        </p>
+        </div>
+        <div class="row mt-5">
+            <div class="col-4 ">
+            <img src="{%static 'club_app/images/fotb.jpg' %}" alt="" class="rounded-circle">
+            </div>
+            
+            <div class="col-4 ">
+                <img src="{%static 'club_app/images/fotbaal.jpg' %}" alt="" class="rounded-circle">
+            </div>
+            
+            <div class="col-4 "> 
+                <img src="{%static 'club_app/images/fotb.jpg' %}" alt=""  class="rounded-circle">
+            </div>
+            </div> 
+            {% include 'club_app/common_files/common_footer.html' %}          
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

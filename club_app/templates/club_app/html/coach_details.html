@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    {%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Details</title>
+    {% include 'club_app/common_files/common_css.html '%}
+    <style>
+        .flex-container{
+            display:flex;
+            width:100%;
+            flex-wrap: wrap;
+            gap:15px;
+            margin-left: 2%;
+
+        }
+        .card-tex{
+            font-size:20px;
+            color:red;
+            font-family:Cambria;
+        }
+        .card{
+            border-radius:25px;
+            border-color:solid-green;
+            height:435px;
+            transition:.5s;
+        }
+    
+       .card:hover{
+            transform:scale(1.2);
+            border-radius:20px;
+       }
+       .card-img-top{
+            height:40%;
+            border-radius:20px;
+        }
+        .card:hover{
+            transform:scale(1.3)
+         }
+        
+    </style>
+</head>
+<body>
+<div class="main-body">
+    {% include 'club_app/common_files/common_header.html'%}
+    <h1 style="color:blueviolet;text-align:center;">Our Mentors</h1>
+    <div class="flex-container">
+        {% for c in coach_key %}
+       <div class="card" style="width: 16rem;">
+        <img src="/media/{{c.coach_pic}}" class="card-img-top" alt="..coach." style=""> 
+         <div class="card-body">
+           <h5 class="card-title">Name: {{c.name}}</h5> 
+           <p class="card-text">Email: {{c.email}}</p>
+           <p class="card-text">City: {{c.city}}</p>
+           <p class="card-text">Experience: {{c.experience}}</p>
+           <p class="card-text">Expertise: {{c.area_of_intrest}}</p>
+    {% comment %} <a href="#" class="btn btn-primary">Go </a> {% endcomment %}
+       </div>
+   </div>
+
+    {%endfor%}
+</div>
+</div>
+
+    {% include 'club_app/common_files/common_footer.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

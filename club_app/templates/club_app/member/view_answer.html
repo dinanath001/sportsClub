@@ -1,0 +1,48 @@
+{% extends 'club_app/member/member_base.html'%}
+{%load static%}
+
+{%block title%}
+  Answers
+{%endblock%}
+
+{%block style%}
+
+ .box{
+       width:350px;
+       height400px;
+ }
+ .box img{
+  width:300px;
+  height:370px;
+ }
+{%endblock%} 
+
+{%block content%}
+ <h2 style="text-align: center; margin-top: 50px; color: rgb(255, 0, 21);">Status of your queries</h2>
+ <div style="margin-left: auto; margin-right: auto; width: 70%; margin-top: 20px;">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Question</th><th>Question Date</th>
+            <th>Answer</th>
+            <th>Answer Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for  obj in answer_key  %}
+        <tr>
+            <td>{{obj.question}}</td>
+            <th>{{obj.question_date}}</th>
+              {% if obj.answer %}
+            <th>{{obj.answer}}</th> 
+              {%else%}
+              <th style="color:red">Yet to be answered</th>
+              {%endif%}
+             <th>{{obj.answer_date}}</th> 
+        </tr>
+        {%endfor%}
+    </tbody>
+    
+  </table>
+
+{%endblock%}
