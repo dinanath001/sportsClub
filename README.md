@@ -88,7 +88,7 @@ Sportsclub/
 ### 1️⃣ Clone the Repository
 
 ```
-git clone <your-repository-link>
+git clone <https://github.com/dinanath001/sportsClub.git>
 cd Sportsclub
 ```
 
